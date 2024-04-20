@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styleForUsers.css">
+</head>
+<body>
+<div class="body">
+
+    <form action="/users" method="post">
+    <div class="registration">
+
+    <div class="registration_name">
+        <div class="registration_name_text">
+            Your Name
+        </div>
+        <div>
+            <input type="text" placeholder="First Name" name="firstName">
+        </div>
+        <div>
+            <input type="text" placeholder="Seconds Name" name="secondName">
+        </div>
+    </div>
+
+    <div class="registration_login">
+        <div class="registration_name_text">
+            Login Details
+        </div>
+        <div>
+            <input type="text" placeholder="Email" name="email">
+        </div>
+        <div>
+            <input type="text" placeholder="Password" name="password">
+        </div>
+    </div>
+
+    <div class="registration_text">
+        Please use 8 or more characters, with at least 1 number and a <br> mixture of uppercase and lowercase letters
+    </div>
+
+    <button class="registration_button" type="submit">
+        JOIN NOW
+        <img src="img/button_vector.png" alt="">
+    </button>
+
+    </div>
+    </form>
+
+    <div class="showUsers">
+        <table class="table">
+            <tr>
+                <th class="firstName">First Name</th>
+                <th class="secondName">Second Name</th></td>
+                <th class="email">Email</th>
+                <th class="password">Password</th>
+            </tr>
+            <tr th:each="u: ${users}" >
+                <td th:text="${u.firstName}"></td>
+                <td th:text="${u.secondName}"></td>
+                <td th:text="${u.email}"></td>
+                <td th:text="${u.password}"></td>
+            </tr>
+        </table>
+
+    </div>
+
+ </div>
+
+</body>
+</html>
